@@ -7,13 +7,13 @@ A pharaonic fetch tool for Linux written in Python.
 ## Screenshots
 
 ### Dark Pharo 
-![App Screenshot](res\Dark_Pharo.png)
+![App Screenshot](res/Dark_Pharo.png)
 ### Nord
-![App Screenshot](res\Nord.Png)
+![App Screenshot](res/Nord.Png)
 ### Nord inverted
-![App Screenshot](res\Nord_rev.png)
+![App Screenshot](res/Nord_rev.png)
 ### Pharo
-![App Screenshot](res\Pharo.png)
+![App Screenshot](res/Pharo.png)
 
 
 ## Installation
