@@ -6,9 +6,13 @@ A pharaonic fetch tool for Linux written in Python.
 
 ## Screenshots
 
+### Dark Pharo 
 ![App Screenshot](res\Dark_Pharo.png)
+### Nord
 ![App Screenshot](res\Nord.Png)
+### Nord inverted
 ![App Screenshot](res\Nord_rev.png)
+### Pharo
 ![App Screenshot](res\Pharo.png)
 
 
@@ -16,7 +20,7 @@ A pharaonic fetch tool for Linux written in Python.
 
 Download the repo using
 ```git
-  git clone 
+  git clone https://github.com/HushmKun/horus
 ```
 Then 
 ```bash
@@ -53,4 +57,3 @@ horus
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-"# horus" 
