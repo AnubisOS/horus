@@ -9,7 +9,7 @@ A pharaonic fetch tool for Linux written in Python.
 ### Dark Pharo 
 ![App Screenshot](res/Dark_Pharo.png)
 ### Nord
-![App Screenshot](res/Nord.Png)
+![App Screenshot](res/Nord.png)
 ### Nord inverted
 ![App Screenshot](res/Nord_rev.png)
 ### Pharo
