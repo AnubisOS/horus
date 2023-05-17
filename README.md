@@ -1,5 +1,5 @@
 
-# horus
+# horus | I've created a small edit [by : Osama Elsherif]
 
 A pharaonic fetch tool for Linux written in Python.
 
