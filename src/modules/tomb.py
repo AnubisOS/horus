@@ -1,12 +1,14 @@
 from .papyri import Horus
+from configparser import ConfigParser 
+from os import environ as env
 
 class obelisk() :
     """
     This is a insdie joke, Where the obelisk is where ancient egyptians wrote.
     The class refers to the screen area of the script.
     """    
-    def __init__(self, BG=(0,0,0) , FG=(235, 203, 139)) -> None:
-        self.BG , self.FG= BG , FG  
+    def __init__(self) -> None:
+        self.BG , self.FG = self._config()
         self.horus = Horus()
 
 
@@ -22,7 +24,6 @@ class obelisk() :
         print(f"\t Shell  : {self.horus.shell}")
         print(f"\t Ram    : {self.horus.ram}")
         
-
     def make_background(self) -> None :
         """
         Prints the ANSI background color code.
@@ -41,3 +42,33 @@ class obelisk() :
         """        
         print("\x1b[0m")
 
+    def _config(self , config_path = "".join((env.get("HOME"),'/.config/horus/papyri.cfg'))) -> dict :
+        """
+        Gets the configurations from the cfg file
+
+        Keyword Arguments:
+            config_path -- path to cf file  (default: {"".join((env.get("HOME"),'/.config/horus/papyri.cfg'))})
+
+        Returns:
+            Tuple of Background Color and Foreground Color
+        """        
+        config = ConfigParser()
+        config.read(config_path)
+        current_config = config.sections()
+        BG = self._str_to_tuple(config[current_config[0]]['BG'])
+        FG = self._str_to_tuple(config[current_config[0]]['FG'])
+        
+        return (BG , FG)
+    
+    def _str_to_tuple(self , string:str) -> tuple[int] : 
+        """
+        Helper metthod to format the color string into a RGB tuple. 
+
+        Arguments:
+            string -- tuple in form of string
+
+        Returns:
+            Tuple of integers. 
+        """        
+        string = string.strip("()")
+        return tuple(map(int, string.split(",")))

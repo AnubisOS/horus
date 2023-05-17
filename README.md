@@ -6,14 +6,14 @@ A pharaonic fetch tool for Linux written in Python.
 
 ## Screenshots
 
-### Dark Pharo 
-![App Screenshot](res/Dark_Pharo.png)
-### Nord
-![App Screenshot](res/Nord.png)
-### Nord inverted
-![App Screenshot](res/Nord_rev.png)
-### Pharo
+* Pharo
 ![App Screenshot](res/Pharo.png)
+* Dark Pharo 
+![App Screenshot](res/Dark_Pharo.png)
+* Nord
+![App Screenshot](res/Nord.png)
+* Nord inverted
+![App Screenshot](res/Nord_rev.png)
 
 
 ## Installation
@@ -24,7 +24,7 @@ Download the repo using
 ```
 Then 
 ```bash
-  sudo make install
+  make install
 ```
     
 
@@ -43,8 +43,8 @@ horus
 
 ## Roadmap
 
-- Add config file to maximize customizations.
-- Add argparse to allow CLI arguments.
+- [x] Add config file to maximize customizations.
+- [ ] Add argparse to allow CLI arguments.
 
 
 ## Acknowledgements
