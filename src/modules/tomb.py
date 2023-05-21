@@ -14,18 +14,19 @@ class obelisk() :
         self._config(args.config) if args.config else self._config()
         self.horus = Horus()
 
-
     def carve(self) -> None :
         """
         Carving ( because of obelisk, get it ? ) the system requirments on the screen. 
         """        
-        print(f"\t{self.horus.user}@{self.horus.host}")
-        print(f"\t{'-' * self.horus.line}")
-        print(f"\t OS     : {self.horus.os}")
-        print(f"\t󰌢 Kernel : {self.horus.kernel_name} {self.horus.kernel_release}")
-        print(f"\t󱑏 Uptime : {self.horus.uptime}")
-        print(f"\t Shell  : {self.horus.shell}")
-        print(f"\t Ram    : {self.horus.ram}")
+        print(f"\t {self.horus.user}@{self.horus.host} ")
+        print(f"\t {'-' * self.horus.line} ")
+        print(f"\t  OS     : {self.horus.os} ")
+        print(f"\t 󰌢 Kernel : {self.horus.kernel_name} {self.horus.kernel_release} ")
+        print(f"\t 󰮯 Pkgs   : {self.horus.pkgs} Package ")
+        print(f"\t 󱑏 Uptime : {self.horus.uptime} ")
+        print(f"\t  Shell  : {self.horus.shell} ")
+        print(f"\t  CPU    : {self.horus.cpu_model}@{self.horus.cpu_freq} GHZ ")
+        print(f"\t  Ram    : {self.horus.ram} ")
         
     def make_background(self) -> None :
         """

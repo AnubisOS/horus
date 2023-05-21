@@ -1,7 +1,7 @@
 
 # horus
 
-A pharaonic fetch tool for Linux written in Python.
+A Pharaonic fetch tool for Arch Linux written in Python.
 
 
 ## Screenshots
@@ -18,15 +18,26 @@ A pharaonic fetch tool for Linux written in Python.
 
 ## Installation
 
-Download the repo using
-```git
-  git clone https://github.com/HushmKun/horus.git
+### Install : 
+* use 
 ```
-Then 
-```bash
+  git clone https://github.com/HushmKun/horus.git
+  cd horus/
   make install
 ```
-    
+### Update :
+* use 
+``` 
+  git clone https://github.com/HushmKun/horus.git
+  cd horus/
+  make update
+```
+### Uninstall :
+* use 
+``` 
+  cd horus/
+  make uninstall
+```
 
 ## Usage/Examples
 
@@ -35,12 +46,12 @@ Then
   horus
 ```
 
-* Uses a custom made config file   
+* Uses a custom made config file ( example of config file found [here](res/papyri.cfg) )
 ```Bash
   horus ./path/to/config
 ```
 
-* Uses a C=cmdline arguments   
+* Uses a cmdline arguments   
 ```Bash 
   horus -fg 100 100 100 -bg 25 25 25 
 ```
@@ -57,7 +68,7 @@ Then
 
 - [x] Add config file to maximize customizations.
 - [x] Add argparse to allow CLI arguments.
-- [ ] currently unknown, If you want to add some features open an Issue or maybe wanna do it yourself with requests.
+- [ ] currently unknown, If you want to add some features open an Issue or maybe wanna do it yourself with PR.
 
 
 ## Acknowledgements

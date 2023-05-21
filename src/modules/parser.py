@@ -1,5 +1,3 @@
-#!/usr/bin/env -S python 
-
 from argparse import ArgumentParser , RawTextHelpFormatter
 from os import get_terminal_size
 

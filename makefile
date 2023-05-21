@@ -19,6 +19,10 @@ uninstall:
 	sudo unlink ${BIN_DIR}/horus
 	@echo "Uninstalled Horus successfully."
 
+update:
+	sudo cp -rf ./src/* ${INSTALL_DIR}/horus/
+	sudo chmod 777 ${INSTALL_DIR}/horus/__init__.py
+	@echo "Updated Horus successfully."
 
-.PHONY: all install uninstall
-.SILENT: install uninstall
+.PHONY: all install uninstall update
+.SILENT: install uninstall update

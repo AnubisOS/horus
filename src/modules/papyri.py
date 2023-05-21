@@ -2,61 +2,53 @@ from subprocess import getoutput
 from json import loads
 from os import readlink , getppid
 
-
 class Horus():
     """
-    Horus, The Son of Isis & Osiris (The one who is above).
+    Horus, The son of Isis & Osiris (The one who is above).
     The class refers to the core of the fetcher script.
     """    
 
     def __init__(self) -> None:
-        self.user = self.get_user_data()
-        self.uptime = self.get_uptime()
-        self.ram = self.get_ram()
-        self.shell = self.get_shell()
-        self.host ,  \
-        self.kernel_name , \
-        self.kernel_release , \
-        self.os = self.get_OS()
-        self.line = len(self.user + self.host) +1 
+        self.get_data()
+        self.line = len(self.user + self.host) + 1 
 
-    def get_user_data(self) -> str :
+    def _get_user_data(self) -> None :
         """
         Gets username & hostname
 
         Returns:
             A string represnting user name.
         """    
-        return getoutput("whoami")
+        self.user =  getoutput("whoami")
 
-    def get_uptime(self) -> str :
+    def _get_uptime(self) -> None :
         """
         Gets uptime. 
 
         Returns:
             A string represnting uptime.
         """    
-        return getoutput("uptime -p")[3:].replace("," , " &")
+        self.uptime = getoutput("uptime -p")[3:].replace("," , " &")
 
-    def get_ram(self) -> str :
+    def _get_ram(self) -> None :
         """
         Get memory status
 
         Returns:
             A tuple having total and used memory.
         """    
-        return getoutput("free --mega | awk 'NR == 2 { print $3\" / \"$2\" MB\" }'")
+        self.ram = getoutput("free --mega | awk 'NR == 2 { print $3\" / \"$2\" MB\" }'")
 
-    def get_shell(self) -> str:
+    def _get_shell(self) -> None:
         """
         Determine which shell invoked the script.
 
         Returns:
-            _description_
+            A string represnting shell name.
         """    
-        return readlink(f"/proc/{getppid()}/exe").rsplit("/")[-1].capitalize()
+        self.shell = readlink(f"/proc/{getppid()}/exe").rsplit("/")[-1].capitalize()
 
-    def get_OS(self) -> dict :
+    def _get_OS(self) -> None :
         """
         Determine some OS data like, host name , kernel name , kernel version and OS name.
 
@@ -65,8 +57,40 @@ class Horus():
         """        
         data = "{" + getoutput("hostnamectl --json=pretty | grep -e 'KernelName' -e 'KernelRelease' -e 'Hostname' -e 'OperatingSystemPrettyName' -w").replace("\n" , "").replace("\t",'')[:-1] + "}" 
         data = loads(data)
-        return data.values()
+        self.host = data['Hostname']
+        self.kernel_name = data['KernelName']
+        self.kernel_release = data['KernelRelease']
+        self.os = data['OperatingSystemPrettyName']
 
+    def _get_pkgs(self) -> None : 
+        """
+        Get Number of pacman's Packages
+        #! Note : it only checks pacman for now.
+
+        Returns:
+            An integer that represents pacman Pkgs.
+        """        
+        self.pkgs =  int(getoutput('pacman -Q | wc -l'))
+
+    def _get_cpu(self) -> None : 
+        """
+        Gets CPU model name and its frequency. 
+        """        
+        cpu = getoutput("cat /proc/cpuinfo | grep -e 'model name' -e 'cpu MHz'").splitlines()[0:2]
+        self.cpu_model  = cpu[0].split(':')[-1].strip()
+        self.cpu_freq  = round(float(cpu[1].split(':')[-1])/1000,1)
+        
+    def get_data(self) -> None :
+        """
+        The driver code for the class.
+        """        
+        self._get_user_data()
+        self._get_uptime()
+        self._get_ram()
+        self._get_shell()
+        self._get_OS()
+        self._get_pkgs()
+        self._get_cpu()
 
 if __name__ == "__main__": 
     pass

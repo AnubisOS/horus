@@ -2,7 +2,7 @@
 
 from modules.tomb import * 
 
-__version__ = "1.2.1"
+__version__ = "0.4.0"
 __author__  = "Hussein Mukhtar"
 
 
