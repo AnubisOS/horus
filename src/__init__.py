@@ -1,10 +1,9 @@
-#!/usr/bin/env -S python 
+#!/usr/bin/env -S python
 
-from modules.tomb import * 
+from modules.tomb import obelisk
 
-__version__ = "0.4.0"
-__author__  = "Hussein Mukhtar"
-
+__version__ = "0.4.1"
+__author__ = "Hussein Mukhtar"
 
 
 def main():

@@ -48,7 +48,7 @@ A Pharaonic fetch tool for Arch Linux written in Python.
 
 * Uses a custom made config file ( example of config file found [here](res/papyri.cfg) )
 ```Bash
-  horus ./path/to/config
+  horus -c ./path/to/config
 ```
 
 * Uses a cmdline arguments   
@@ -80,5 +80,7 @@ A Pharaonic fetch tool for Arch Linux written in Python.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This Project is Licensed as [MIT](https://choosealicense.com/licenses/mit/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 
